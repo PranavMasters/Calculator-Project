@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        background-color: blueviolet;
+        font-family: monospace;
+      }
+      #buttons {
+        justify-content: space-evenly;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        width: 900px;
+        height: 400px;
+      }
+      button {
+        border: 5px solid gray;
+        width: 200px;
+        height: 70px;
+        font-size: 50px;
+      }
+      h1 {
+        border: 5px solid black;
+        width: 900px;
+        height: 70px;
+        background-color: white;
+        font-size: 50px;
+        text-align: center;
+      }
+
+      button:active {
+        background-color: rgb(161, 161, 161);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="display"></h1>
+    <div id="buttons">
+      <button id="0">0</button>
+      <button id="AC">AC</button>
+      <button id="=">=</button>
+      <button id="+">+</button>
+      <button id="1">1</button>
+      <button id="2">2</button>
+      <button id="3">3</button>
+      <button id="-">-</button>
+      <button id="4">4</button>
+      <button id="5">5</button>
+      <button id="6">6</button>
+      <button id="*">*</button>
+      <button id="7">7</button>
+      <button id="8">8</button>
+      <button id="9">9</button>
+      <button id="/">/</button>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const display = document.getElementById("display");
+      let equation = "";
+
+      function updateDisplay(value) {
+        display.textContent = value || "0";
+      }
+
+      function calculateEquation(eq) {
+        try {
+          return eval(eq);
+        } catch {
+          return "Error";
+        }
+      }
+      document.getElementById("buttons").addEventListener("click", (e) => {
+        if (e.target.tagName !== "BUTTON") return;
+
+        const buttonId = e.target.id;
+
+        if (buttonId === "AC") {
+          equation = "";
+          updateDisplay(equation);
+          return;
+        }
+
+        if (buttonId === "=") {
+          equation = String(calculateEquation(equation));
+          updateDisplay(equation);
+          return;
+        }
+
+        equation += buttonId;
+        updateDisplay(equation);
+      });
+
+      updateDisplay("");
+    });
+  </script>
+  <script src="calc.js"></script>
+</html>
