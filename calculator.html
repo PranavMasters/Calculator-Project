@@ -1,0 +1,61 @@
+<!--
+Problem Statement:
+Design and develop a web-based calculator that performs basic arithmetic
+operations.
+Technologies:
+● HTML: Structure the content of the website.
+● CSS: Style the website.
+● JavaScript: Implement the logic for calculations and user interactions.
+Requirements:
+● Display Area: A section to show the current input and results.
+● Number Buttons: Buttons for digits 0-9.
+● Operation Buttons: Buttons for addition (+), subtraction (-), multiplication
+(×), and division (÷).
+● Clear Button: A button to clear the input and reset the calculator.
+● Equal Button: A button to compute and display the result of the entered
+expression.
+Deliverables:
+● A fully functional calculator website hosted online.
+● Source code stored in a GitHub repository.
+Figma/UI:
+● https://www.figma.com/design/FMRiqHDXwrmRXE39OGmVVj/Calculadora-%E2%80%A2-Desafio-05-(Community)?node-id=301-230&t=A52Jwz9gNvwNIwhw-1
+● Make sure your UI looks exactly the same as the one given in the Figma
+link.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculator Project</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" readonly id="display" >
+        <div id="keys">
+            <button onclick="clearDisplay()" class="advanced-buttons first">CE</button>
+            <button onclick="appendANSToDisplay()" class="advanced-buttons second">ANS</button>
+            <button class="no-display">f</button>
+            <button class="no-display">f</button>
+            <button onclick="appendOnToDisplay('1')">1</button>
+            <button onclick="appendOnToDisplay('2')">2</button>
+            <button onclick="appendOnToDisplay('3')">3</button>
+            <button onclick="appendOnToDisplay('+')" class="operator-buttons">+</button>
+            <button onclick="appendOnToDisplay('4')">4</button>
+            <button onclick="appendOnToDisplay('5')">5</button>
+            <button onclick="appendOnToDisplay('6')">6</button>
+            <button onclick="appendOnToDisplay('-')" class="operator-buttons">-</button>
+            <button onclick="appendOnToDisplay('7')">7</button>
+            <button onclick="appendOnToDisplay('8')">8</button>
+            <button onclick="appendOnToDisplay('9')">9</button>
+            <button onclick="appendOnToDisplay('*')" class="operator-buttons">x</button>
+            <button onclick="appendOnToDisplay('.')">.</button>
+            <button onclick="appendOnToDisplay('0')">0</button>
+            <button onclick="calculateDisplay()" class="calculate-button">=</button>
+            <button onclick="appendOnToDisplay('/')" class="operator-buttons">÷</button>
+        </div>
+    </div>
+</body>
+</html>
